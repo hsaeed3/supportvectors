@@ -9,9 +9,12 @@ authors = [
     {name="Hammad Saeed", email="hammad@supportvectors.com"}
 ]
 
+# llm/ai dependencies are standardized within the following libraries,
+# all courses/projects use the same set of core dependencies.
 dependencies = [
-    # better notebooks!
-    "marimo>=0.19.7",
+    "ollama>=0.6.1",
+    "openai>=2.16.0",
+    "pydantic-ai-slim>=1.50.0",
 ]
 
 [project.optional-dependencies]
@@ -31,7 +34,9 @@ dev = [
     # you should too!
     "ruff",
     "uv",
-    "ty"
+    "ty",
+    # better jupyter!
+    "marimo>=0.19.7",
 ]
 
 [tool.setuptools.packages.find]
