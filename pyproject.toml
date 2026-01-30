@@ -23,8 +23,19 @@ dependencies = [
 # aims to consolidate all dependencies for a given course in 
 # a minimal fashion.
 rag = [
-    "numpy"
+    "numpy",
+    "matplotlib",
 ]
+
+[build-system]
+requires = ["hatchling", "uv-dynamic-versioning>=0.7.0"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+source = "uv-dynamic-versioning"
+
+[tool.hatch.build.targets.wheel]
+packages = ["sv"]
 
 [dependency-groups]
 dev = [
@@ -37,11 +48,4 @@ dev = [
     "ty",
     # better jupyter!
     "marimo>=0.19.7",
-]
-
-[tool.setuptools.packages.find]
-where = [
-    ".",
-    # this is structured by course/subfolder
-    "rag",
 ]
