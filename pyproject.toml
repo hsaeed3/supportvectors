@@ -1,0 +1,42 @@
+[project]
+name = "supportvectors"
+version = "0.1.0"
+description = "personal-use / complete monorepo for supportvectors project implementations in python"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {file = "LICENSE"}
+authors = [
+    {name="Hammad Saeed", email="hammad@supportvectors.com"}
+]
+
+dependencies = [
+    # better notebooks!
+    "marimo>=0.19.7",
+]
+
+[project.optional-dependencies]
+# !!!
+# dependencies are structured by course/project, this repo
+# aims to consolidate all dependencies for a given course in 
+# a minimal fashion.
+rag = [
+    "numpy"
+]
+
+[dependency-groups]
+dev = [
+    "pytest",
+    "pytest-asyncio",
+    # indeed i prefer astral.sh's entire ecosystem in all my projects,
+    # you should too!
+    "ruff",
+    "uv",
+    "ty"
+]
+
+[tool.setuptools.packages.find]
+where = [
+    ".",
+    # this is structured by course/subfolder
+    "rag",
+]
